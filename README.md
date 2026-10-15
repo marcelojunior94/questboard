@@ -1,16 +1,44 @@
-# React + Vite
+# Questboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Um To-do list medieval, focado em resolver missões (tarefas) de forma mais divertida.
 
-Currently, two official plugins are available:
+Separados por:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Main Quests (Missões Principais)
+- Side Quests (Missões Secundárias)
+- Semanais
+- Mensais
 
-## React Compiler
+## Como funciona?
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Por hora, não está funcional. Faltam várias implementações, que estão listadas abaixo.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## O que falta?
+Updates futuros serão feitos para várias implementações, e a medida que forem finalizados,
+irei marcar como feitos:
+
+[] Corrigir o Signboard
+[] Corrigir enquadramento do papel
+[] Implementar sistema de Recompensas
+[] Implementar dado D20
+[] Integrar com o Prisma
+[] Testar Mobile
+[] Implementar drag and drop
+[] Corrigir o scroll
+[] Mudar icons de delete e add
+[] Mudar a box de "nova quest"
+[] Implementar aviso de bônus/dinheiro
+[] Implementar ícones de categoria
+[] Bordas do questboard adaptadas
+[] Mudar fontes
+[] Adicionar SFX
+[] Adicionar música (?)
+[] Adicionar animações
+[] Corrigir Sombras
+[] Animações de silhuetas de pessoas andando (?)
+[] Sistema de HP
+[] Decidir design 2D ou realista
+[] Mini descrição de quest (?)
+[] Recompensas em um livro
+[] Checkbox de quest completada
