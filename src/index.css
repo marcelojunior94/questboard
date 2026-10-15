@@ -1,0 +1,170 @@
+@font-face {
+    font-family: "Cinzel Decorative";
+    src: url("E:\PROJETOSWEBDEV\QuestBoard\questboard\src\assets\fonts\CinzelDecorative-Bold.ttf");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body{
+    /* background-color: hsl(23, 14%, 47%); */
+    background-image: url("https://pics.freeartbackgrounds.com/fullhd/Old_Wooden_Planks_Texture-1559.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-size: 50px;
+}
+
+.board{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;    
+    
+}
+
+.questboard{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 100px;
+    padding: 80px;
+    height: 800px;
+    max-height: 800px;
+    overflow-y:scroll; 
+    background-image: url("E:\PROJETOSWEBDEV\QuestBoard\questboard\public\oldpaper5.png");
+    background-size:110%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+    filter: drop-shadow(20px 10px 4px #1e1c1cc1);
+}
+
+.quest-title{
+  font-family: "Cinzel Decorative";
+  
+  position: relative;
+  /* isolation: isolate; */
+  width: 100%;
+  aspect-ratio: 5 / 5;   /* TROQUE: largura / altura reais do sign.png */
+  /* background: url('./assets/sign.png') center / 100% 100% no-repeat; */
+  
+  
+  display: grid;
+  place-items: center;   /* centraliza o texto na placa */
+  padding: 5% 12% 0;    /* empurra o texto para dentro da madeira */
+  box-sizing: border-box;
+  margin: 0;
+
+  /* font-size: clamp(1.5rem, 3vw, 4rem); */
+  font-size: 3rem;
+  text-align: center;
+  color: rgb(52, 49, 49);
+}
+
+.quest-title::before {
+  content: '';
+  position: absolute;
+  inset: 0;                 /* ocupa a caixa inteira, como o background antes */
+  z-index: -1;              /* fica atrás do texto e do ícone */
+  background: url('./assets/sign.png') center / 100% 100% no-repeat;
+  transform: translateY(var(--sign-top, -15%));
+}
+
+.quest-icon{
+    /* width: 100px;
+  height: 100px;
+  object-fit: contain; */
+    position: absolute;
+  top: var(--icon-top, 27%);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* h1
+    /* font-size: 4rem;
+    color: rgb(52, 49, 49); */
+    /* background-image: url("E:\PROJETOSWEBDEV\QuestBoard\questboard\src\assets\sign.png");
+    background-size:100%;
+    background-repeat: no-repeat;
+    background-position:center;
+    padding: 50px;
+    padding-bottom: 200px;
+    margin-top: 0%; */
+/* } */
+
+button{
+    font-size: 1.7rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-button{
+    background-color: hsl(125, 47%, 54%);
+}
+
+.add-button:hover{
+    background-color: hsl(125, 47%, 54%);
+}
+
+.delete-button{
+    background-color: hsla(10, 90%, 50%, 0.096);
+}
+
+.delete-button:hover{
+    background-color: hsla(10, 90%, 50%, 0.187);
+}
+
+.move-button{
+    background-color: hsl(207, 90%, 64%);
+}
+
+.move-button:hover{
+    background-color: hsl(207, 90%, 54%);
+}
+
+input[type="text"]{
+    font-size: 1.6rem;
+    padding: 10px;
+    border: 2px solid hsla(0, 0%, 80%, 0.5);
+    border-radius: 5px;
+    color: hsla(0, 0%, 0%, 0.5);
+}
+
+ul {
+    padding: 0;
+    width: 400px;
+}
+
+li{
+    
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 15px;
+    background-color: hsl(0, 0%, 97%);
+    margin-bottom: 10px;
+    border: 3px solid hsl(0, 0%, 85%, 0.75);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between
+}
+
+.quest-text{
+    flex: 1;
+    overflow-wrap: anywhere;
+}
+
+.delete-button, .move-button{
+    padding: 8px 12px;
+    font-size: 1.4rem;
+    margin-left: 10px;
+}
