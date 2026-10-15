@@ -18,10 +18,10 @@ Por hora, não está funcional. Faltam várias implementações, que estão list
 Updates futuros serão feitos para várias implementações, e a medida que forem finalizados,
 irei marcar como feitos:
 
-[] Corrigir o Signboard;
-[] Corrigir enquadramento do papel;
-[] Implementar sistema de Recompensas;
-[] Implementar dado D20;
+- [ ] Corrigir o Signboard;
+- [ ] Corrigir enquadramento do papel;
+- [ ] Implementar sistema de Recompensas;
+- [ ] Implementar dado D20;
 [] Integrar com o Prisma
 [] Testar Mobile
 [] Implementar drag and drop
