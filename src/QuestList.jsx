@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import xIcon from "./assets/x.png";
-import Sign from "./assets/sign.png"
+import deleteIcon from "./assets/delete.svg";
+import addIcon from "./assets/add.svg";
+import { useLocalStorage } from './useLocalStorage';
 
 function QuestList({ icon, title, iconTop, signTop }) {
 
-
-    const [quests, setQuests] = useState([]);
+    const [quests, setQuests] = useLocalStorage(`quests-${title}`, []);
     const [text, setText] = useState('');
+    const limiteMaximo = 35;
 
     function handleInputChange(event) {
         if (event.key === 'Enter') return;
@@ -14,10 +15,21 @@ function QuestList({ icon, title, iconTop, signTop }) {
         
     }
 
+     const handleChange = (e) => {
+    if (e.target.value.length <= limiteMaximo) {
+      setValor(e.target.value);
+    }
+  };
+
+    function alternar(id){
+        setQuests(quests.map((q) => q.id === id ? {...q, feita: !q.feita,  } : q));
+    }
+
   function addQuest() {
     if (!text.trim()) return;
-    setQuests([...quests, { id: Date.now(), text, done: false }]);
+    setQuests([...quests, { id: Date.now(), text, feita: false }]);
     setText("");
+
   }
     
 
@@ -54,33 +66,43 @@ function QuestList({ icon, title, iconTop, signTop }) {
         <section className='quest-column'>
             <h1 className='quest-title' style={{ '--icon-top': iconTop, '--sign-top': signTop }}>
                     <img className='quest-icon' src={icon} alt="" />
-                    <span>{title}</span>
+                    <span className='titulo'>{title}</span>
             </h1>  
-        <section  className='questboard'>    
-            <div>
+
+                <div className='newquest-box'>
                     <input
                         type="text"
                         value={text}
                         onChange={(e) => setText(e.target.value)}
                         placeholder='Nova quest...'
-                        
+                        maxLength={35}
                         />
+                        <span className='char-leng'>{text.length} / {limiteMaximo}</span>
                         <button
                         className='add-button'
                         onClick={addQuest}>
-                            +
+                            <img src={addIcon} alt="" height="50"/>
                         </button>
+                </div>
 
+        <section  className='questboard'>    
+            <div>
                 <ul>
                     {quests.map((q) => (
-                    <li key={q.id}><span className='quest-text'>{q.text}</span>
-                        <button
-                            className='delete-button'
-                            onClick={() => deleteQuest(q.id)}>  
-                            <img src={xIcon} alt="" height="20px" />
-                            {/* 🗑️ */}
-                        </button>
-                        <button
+                    <li key={q.id}>
+                        <label>
+                            <input className='custom-check'
+                            type="checkbox"
+                            checked={q.feita}
+                            onChange={() => alternar(q.id)}
+                            />
+                            <span
+                            className='quest-text'
+                            style={{ textDecoration: q.feita ? 'line-through' : "none"} }
+                            >{q.text}</span>
+                        </label>
+                        <div className='quest-actions'>
+                            <button
                             className='move-button'
                             onClick={() => moveQuestUp(q.id)}>  
                             ☝️
@@ -90,6 +112,13 @@ function QuestList({ icon, title, iconTop, signTop }) {
                             onClick={() => moveQuestDown(q.id)}>  
                             👇
                         </button>
+                        <button
+                            className='delete-button'
+                            onClick={() => deleteQuest(q.id)}>  
+                            <img src={deleteIcon} alt=""/>
+                        </button>
+                        </div>                        
+                        
                     </li>
                     ))}
                 </ul>

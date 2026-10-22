@@ -1,14 +1,14 @@
 import QuestList from "./QuestList.jsx";
-import mainIcon from "./assets/main.png";
+import mainIcon from "./assets/main3.svg";
 import sideIcon from "./assets/side.png";
 import weeklyIcon from "./assets/weekly.png";
 import monthlyIcon from "./assets/monthly.png";
 
 const lists = [
-  { icon: mainIcon, title: "MAIN QUESTS" },
-  { icon: sideIcon, title: "SIDE QUESTS" },
-  { icon: weeklyIcon, title: "SEMANAIS" },
-  { icon: monthlyIcon, title: "MENSAIS" },
+  { icon: mainIcon, title: "Main Quests" },
+  { icon: sideIcon, title: "Side Quests" },
+  { icon: weeklyIcon, title: "Semanais" },
+  { icon: monthlyIcon, title: "Mensais" },
 ];
 
 function App(){

@@ -26,12 +26,12 @@ irei marcar como feitos:
 - [ ] Testar Mobile
 - [ ] Implementar drag and drop
 - [ ] Corrigir o scroll
-- [ ] Mudar icons de delete e add
-- [ ] Mudar a box de "nova quest"
+- [x] Mudar icons de delete e add
+- [x] Mudar a box de "nova quest"
 - [ ] Implementar aviso de bônus/dinheiro
 - [ ] Implementar ícones de categoria
 - [ ] Bordas do questboard adaptadas
-- [ ] Mudar fontes
+- [x] Mudar fontes
 - [ ] Adicionar SFX
 - [ ] Adicionar música (?)
 - [ ] Adicionar animações
@@ -41,4 +41,4 @@ irei marcar como feitos:
 - [ ] Decidir design 2D ou realista
 - [ ] Mini descrição de quest (?)
 - [ ] Recompensas em um livro
-- [ ] Checkbox de quest completada
+- [x] Checkbox de quest completada

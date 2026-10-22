@@ -1,16 +1,24 @@
 @font-face {
-    font-family: "Cinzel Decorative";
-    src: url("E:\PROJETOSWEBDEV\QuestBoard\questboard\src\assets\fonts\CinzelDecorative-Bold.ttf");
+    font-family: "Jacquard12-Regular";
+    src: url("E:\PROJETOSWEBDEV\QuestBoard\questboard\src\assets\fonts\Jacquard12-Regular.ttf");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
+@font-face {
+    font-family: "Alkhemikal";
+    src: url("E:\PROJETOSWEBDEV\QuestBoard\questboard\src\assets\fonts\Alkhemikal.ttf");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 body{
-    /* background-color: hsl(23, 14%, 47%); */
-    background-image: url("https://pics.freeartbackgrounds.com/fullhd/Old_Wooden_Planks_Texture-1559.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url("./assets/backgroundwood.svg");
+    background-repeat:repeat;
+    background-size:10%;
     background-position: center;
     background-attachment: fixed;
     font-size: 50px;
@@ -21,13 +29,11 @@ body{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;    
-    
 }
 
 .questboard{
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin-top: 100px;
+    font-family: "Jacquard12-Regular";
+    text-align: left;
     padding: 80px;
     height: 800px;
     max-height: 800px;
@@ -36,71 +42,75 @@ body{
     background-size:110%;
     background-repeat: no-repeat;
     background-position: center;
-    border-radius: 10px;
-    filter: drop-shadow(20px 10px 4px #1e1c1cc1);
 }
 
-.quest-title{
-  font-family: "Cinzel Decorative";
-  
-  position: relative;
-  /* isolation: isolate; */
-  width: 100%;
-  aspect-ratio: 5 / 5;   /* TROQUE: largura / altura reais do sign.png */
-  /* background: url('./assets/sign.png') center / 100% 100% no-repeat; */
-  
-  
-  display: grid;
-  place-items: center;   /* centraliza o texto na placa */
-  padding: 5% 12% 0;    /* empurra o texto para dentro da madeira */
-  box-sizing: border-box;
-  margin: 0;
+.custom-check{
+    appearance: none;
+    box-sizing: border-box;
+    border: 3px solid rgb(122, 66, 58);
+    border-radius: 5px;
+    margin: -5px;
+    align-items: center;
+    margin-right: 10px;
+    width: 24px;
+    height: 24px
+}
 
-  /* font-size: clamp(1.5rem, 3vw, 4rem); */
-  font-size: 3rem;
+
+.custom-check:disabled {
+  opacity: 0.5;
+}
+
+.custom-check:checked {
+  background-color: dodgerblue;
+  border-color: dodgerblue;
+}
+
+
+.quest-title{
+  font-family: "Jacquard12-Regular";
+  position:relative;
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  display: grid;
+  place-items: center;
+  padding: 10% 12% 0;
+  box-sizing:border-box;
+  font-size: 5rem;
   text-align: center;
-  color: rgb(52, 49, 49);
+  margin: 0%;
+  color: rgb(242, 238, 233);
+}
+
+.titulo{
+    text-shadow: 0.05em 0 black, 0 0.05em black, -0.05em 0 black, 0 -0.05em black, -0.05em -0.05em black, -0.05em 0.05em black, 0.05em -0.05em black, 0.05em 0.05em black;
+    transform: translateY(50%);
 }
 
 .quest-title::before {
   content: '';
   position: absolute;
-  inset: 0;                 /* ocupa a caixa inteira, como o background antes */
-  z-index: -1;              /* fica atrás do texto e do ícone */
-  background: url('./assets/sign.png') center / 100% 100% no-repeat;
-  transform: translateY(var(--sign-top, -15%));
+  inset: 0;                
+  z-index: -1;             
+  background: url('./assets/signboard.svg') center / 100% 100% no-repeat;
+  transform: translateY(var(--sign-top, -5%,));
 }
 
 .quest-icon{
-    /* width: 100px;
-  height: 100px;
-  object-fit: contain; */
-    position: absolute;
-  top: var(--icon-top, 27%);
+  position: absolute;
+  top: var(--icon-top, 25%);
   left: 50%;
   transform: translateX(-50%);
-  width: 18%;
+  width: 25%;
   height: auto;
   object-fit: contain;
 }
 
-/* h1
-    /* font-size: 4rem;
-    color: rgb(52, 49, 49); */
-    /* background-image: url("E:\PROJETOSWEBDEV\QuestBoard\questboard\src\assets\sign.png");
-    background-size:100%;
-    background-repeat: no-repeat;
-    background-position:center;
-    padding: 50px;
-    padding-bottom: 200px;
-    margin-top: 0%; */
-/* } */
-
 button{
-    font-size: 1.7rem;
+    /* font-size: 1.7rem; */
     font-weight: bold;
-    padding: 10px 20px;
-    color: white;
+    padding: 10px 10px;
+    /* color: white; */
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -108,11 +118,19 @@ button{
 }
 
 .add-button{
-    background-color: hsl(125, 47%, 54%);
+    background-color: hsla(125, 47%, 54%, 0.284);
+    border: 3px solid rgb(67, 39, 0);
+    padding: 5px;
 }
 
 .add-button:hover{
-    background-color: hsl(125, 47%, 54%);
+    transition: 0.3s ease;
+    background-color: hsla(125, 47%, 54%, 0.642);
+    border: 3px solid white;
+    /* outline-style:auto; */
+    /* color: black; */
+    /* outline-color: rgb(252, 255, 253); */
+    
 }
 
 .delete-button{
@@ -132,11 +150,39 @@ button{
 }
 
 input[type="text"]{
-    font-size: 1.6rem;
-    padding: 10px;
-    border: 2px solid hsla(0, 0%, 80%, 0.5);
-    border-radius: 5px;
-    color: hsla(0, 0%, 0%, 0.5);
+    font-family: "Alkhemikal";
+    font-size: 2rem;
+    background-color: hsla(42, 66%, 63%, 0);
+    border-style: none;
+    outline: none;
+    color: hsla(0, 2%, 9%, 0.682);
+    padding-left: 20px;
+    flex: 1;
+    min-width: 0;
+}
+
+.quest-column{
+    justify-items: center;
+}
+
+.newquest-box{
+    display: flex;
+    align-items: center;
+    width: 85%;
+    box-sizing: border-box;
+    border: 5px dashed rgb(67, 39, 0);
+    background-color: hsl(42, 66%, 63%);
+    
+}
+
+.char-leng{
+    font-family: "Jacquard12-Regular";
+    flex: 0 0 auto;
+    width: 7ch;
+    text-align: right;    
+    white-space: nowrap;
+    font-size: 2rem;
+    margin-right: 15px;
 }
 
 ul {
@@ -145,26 +191,35 @@ ul {
 }
 
 li{
-    
+    font-family: "Alkhemikal";
     font-size: 2rem;
     font-weight: bold;
-    padding: 15px;
-    background-color: hsl(0, 0%, 97%);
+    color:rgb(79, 53, 39);
+    padding: 5px;
     margin-bottom: 10px;
-    border: 3px solid hsl(0, 0%, 85%, 0.75);
     border-radius: 5px;
     display: flex;
+    width: 100%;
     align-items: center;
-    justify-content: space-between
+    gap: 12px;
+    box-sizing: border-box;
+    justify-content: space-between;
 }
 
 .quest-text{
     flex: 1;
+    min-width: 0;
     overflow-wrap: anywhere;
 }
 
-.delete-button, .move-button{
-    padding: 8px 12px;
-    font-size: 1.4rem;
-    margin-left: 10px;
+.quest-actions {
+  display: flex;
+  flex-shrink: 0;            /* o grupo nunca é espremido */
+  gap: 2px;
+}
+
+.quest-actions button {
+  width: 36px;
+  height: 36px;              /* tamanho fixo: acaba com os botões gigantes */
+  padding: 0px;
 }
