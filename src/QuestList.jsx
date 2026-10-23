@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import deleteIcon from "./assets/delete.svg";
 import addIcon from "./assets/add.svg";
+import bonusSign from "./assets/bonus_sign.svg"
+import coinIcon from "./assets/coin.svg";
 import { useLocalStorage } from './useLocalStorage';
 
-function QuestList({ icon, title, iconTop, signTop }) {
+function QuestList({ icon, title, iconTop, signTop, description }) {
 
     const [quests, setQuests] = useLocalStorage(`quests-${title}`, []);
     const [text, setText] = useState('');
@@ -67,7 +69,16 @@ function QuestList({ icon, title, iconTop, signTop }) {
             <h1 className='quest-title' style={{ '--icon-top': iconTop, '--sign-top': signTop }}>
                     <img className='quest-icon' src={icon} alt="" />
                     <span className='titulo'>{title}</span>
+                    <div className='description'>
+                        <span>{description}</span>
+                        <img src={coinIcon} alt="" />
+                    </div>
             </h1>  
+
+            <div className='bonus-sign'>
+                <img src={bonusSign} alt="" height="150"/>
+
+            </div>
 
                 <div className='newquest-box'>
                     <input

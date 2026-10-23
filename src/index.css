@@ -22,6 +22,7 @@ body{
     background-position: center;
     background-attachment: fixed;
     font-size: 50px;
+    filter: drop-shadow(10px 10px rgba(73, 50, 48, 0.573));
 }
 
 .board{
@@ -36,12 +37,14 @@ body{
     text-align: left;
     padding: 80px;
     height: 800px;
-    max-height: 800px;
-    overflow-y:scroll; 
-    background-image: url("E:\PROJETOSWEBDEV\QuestBoard\questboard\public\oldpaper5.png");
-    background-size:110%;
+    /* max-height: 800px; */
+    /* overflow-y:scroll;  */
+    background-image: url("E:\PROJETOSWEBDEV\QuestBoard\questboard\src\assets\paperv2.svg");
+    background-size:100%;
+    background-position-y: -130px;
     background-repeat: no-repeat;
-    background-position: center;
+    /* background-position: center; */
+    /* filter: drop-shadow(10px 10px rgba(73, 50, 48, 0.824)); */
 }
 
 .custom-check{
@@ -83,6 +86,8 @@ body{
 }
 
 .titulo{
+    margin-bottom: 40px;
+    margin-top: 130px;
     text-shadow: 0.05em 0 black, 0 0.05em black, -0.05em 0 black, 0 -0.05em black, -0.05em -0.05em black, -0.05em 0.05em black, 0.05em -0.05em black, 0.05em 0.05em black;
     transform: translateY(50%);
 }
@@ -107,10 +112,8 @@ body{
 }
 
 button{
-    /* font-size: 1.7rem; */
     font-weight: bold;
     padding: 10px 10px;
-    /* color: white; */
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -126,13 +129,19 @@ button{
 .add-button:hover{
     transition: 0.3s ease;
     background-color: hsla(125, 47%, 54%, 0.642);
-    border: 3px solid white;
-    /* outline-style:auto; */
-    /* color: black; */
-    /* outline-color: rgb(252, 255, 253); */
-    
+    border: 3px solid white;   
 }
 
+.bonus-sign{
+    margin-top: -120px;
+}
+
+.description{
+    display: flex;
+    color: black;
+    font-size: 33px;
+    font-weight: 500;
+}
 .delete-button{
     background-color: hsla(10, 90%, 50%, 0.096);
 }

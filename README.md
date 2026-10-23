@@ -19,7 +19,7 @@ Updates futuros serão feitos para várias implementações, e a medida que fore
 irei marcar como feitos:
 
 - [ ] Corrigir o Signboard
-- [ ] Corrigir enquadramento do papel
+- [x] Corrigir enquadramento do papel
 - [ ] Implementar sistema de Recompensas
 - [ ] Implementar dado D20
 - [ ] Integrar com o Prisma
@@ -28,14 +28,14 @@ irei marcar como feitos:
 - [ ] Corrigir o scroll
 - [x] Mudar icons de delete e add
 - [x] Mudar a box de "nova quest"
-- [ ] Implementar aviso de bônus/dinheiro
+- [x] Implementar aviso de bônus/dinheiro
 - [ ] Implementar ícones de categoria
 - [ ] Bordas do questboard adaptadas
 - [x] Mudar fontes
 - [ ] Adicionar SFX
 - [ ] Adicionar música (?)
 - [ ] Adicionar animações
-- [ ] Corrigir Sombras
+- [x] Corrigir Sombras
 - [ ] Animações de silhuetas de pessoas andando (?)
 - [ ] Sistema de HP
 - [ ] Decidir design 2D ou realista
