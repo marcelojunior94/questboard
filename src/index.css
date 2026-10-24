@@ -14,6 +14,9 @@
     font-display: swap;
 }
 
+html, label {
+    cursor: url("./assets/cursor.svg") 0 0, auto;
+}
 
 body{
     background-image: url("./assets/backgroundwood.svg");
@@ -23,7 +26,18 @@ body{
     background-attachment: fixed;
     font-size: 50px;
     filter: drop-shadow(10px 10px rgba(73, 50, 48, 0.573));
+
+    /* cursor: pointer url("./assets/add.svg"), auto;   */
 }
+
+button,
+a, .quest-text,
+[role="button"],
+input[type="checkbox"],
+li[draggable="true"] {
+    cursor:url("./assets/cursorpointer.svg") 0 0, pointer;      
+}
+
 
 .board{
     display: flex;
@@ -116,7 +130,7 @@ button{
     padding: 10px 10px;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
+    /* cursor: pointer; */
     transition: background-color 0.3s ease;
 }
 
@@ -210,7 +224,7 @@ li{
     display: flex;
     width: 100%;
     align-items: center;
-    gap: 12px;
+    /* gap: 1px; */
     box-sizing: border-box;
     justify-content: space-between;
 }

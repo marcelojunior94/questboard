@@ -3,6 +3,7 @@ import deleteIcon from "./assets/delete.svg";
 import addIcon from "./assets/add.svg";
 import bonusSign from "./assets/bonus_sign.svg"
 import coinIcon from "./assets/coin.svg";
+import { playSound } from './sounds';
 import { useLocalStorage } from './useLocalStorage';
 
 function QuestList({ icon, title, iconTop, signTop, description }) {
@@ -10,12 +11,7 @@ function QuestList({ icon, title, iconTop, signTop, description }) {
     const [quests, setQuests] = useLocalStorage(`quests-${title}`, []);
     const [text, setText] = useState('');
     const limiteMaximo = 35;
-
-    function handleInputChange(event) {
-        if (event.key === 'Enter') return;
-        setText(event.target.value);
-        
-    }
+    const maxTasks = 7;
 
      const handleChange = (e) => {
     if (e.target.value.length <= limiteMaximo) {
@@ -25,18 +21,29 @@ function QuestList({ icon, title, iconTop, signTop, description }) {
 
     function alternar(id){
         setQuests(quests.map((q) => q.id === id ? {...q, feita: !q.feita,  } : q));
+        playSound("check")
     }
 
   function addQuest() {
     if (!text.trim()) return;
+    if (quests.length >= maxTasks){
+        alert('Limite de tasks atingido!')
+        return;
+    }
     setQuests([...quests, { id: Date.now(), text, feita: false }]);
     setText("");
-
+    playSound("add");
   }
+
+      function handleSubmit(e) {
+        e.preventDefault();
+        addQuest();
+    }
     
 
     function deleteQuest(id){
         setQuests(quests.filter((q) => q.id !== id));
+        playSound("delete");
     }
 
     function moveQuestUp(id){
@@ -59,8 +66,7 @@ function QuestList({ icon, title, iconTop, signTop, description }) {
             const updatedQuest = [...quests];
             [updatedQuest[index], updatedQuest[index + 1]] =
             [updatedQuest[index + 1], updatedQuest[index]];
-            setQuests(updatedQuest);
-        
+            setQuests(updatedQuest);        
     }
 
 
@@ -80,21 +86,22 @@ function QuestList({ icon, title, iconTop, signTop, description }) {
 
             </div>
 
-                <div className='newquest-box'>
+                <form className='newquest-box' onSubmit={handleSubmit}>
                     <input
                         type="text"
                         value={text}
                         onChange={(e) => setText(e.target.value)}
-                        placeholder='Nova quest...'
-                        maxLength={35}
+                        disabled={quests.length >= maxTasks}
+                        placeholder={quests.length >= maxTasks ? "Limite atingido." : "Nova quest..."}
+                        maxLength={35}   
                         />
                         <span className='char-leng'>{text.length} / {limiteMaximo}</span>
                         <button
                         className='add-button'
-                        onClick={addQuest}>
+                        type='submit'>
                             <img src={addIcon} alt="" height="50"/>
                         </button>
-                </div>
+                </form>
 
         <section  className='questboard'>    
             <div>
@@ -106,6 +113,7 @@ function QuestList({ icon, title, iconTop, signTop, description }) {
                             type="checkbox"
                             checked={q.feita}
                             onChange={() => alternar(q.id)}
+                            onKeyDown={handleChange}
                             />
                             <span
                             className='quest-text'
